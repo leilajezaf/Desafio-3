@@ -166,6 +166,8 @@ footer {
     margin: auto; 
     padding: 0px 0 30px 0;
     border-radius: 8px;
+    border-left: 6px solid rgb(255, 255, 255);
+    border-right: 6px solid rgb(255, 255, 255);
    
 }
 
@@ -184,23 +186,48 @@ footer {
     background-color: #ffffff;
     border-radius: 6px;
     margin: 10px;
-    padding: 10px;
+    padding: 14px;
     margin-bottom: 40px;
+    display: flex;
    
 }
 
 h3{
     margin-bottom: 10px;
     color:  rgb(236, 17, 137) ;
-    text-align: right;
+   font-size:x-large;
 }
 
-.pista, p{
-    margin: 4px;
-    padding: 6px;
+.titulos-imagenes, .titulo-especificaciones{
+padding: 4px 10px;
+margin: 8px;
+text-align:start;
+
+}
+
+.pista {
+    margin: 8px 4px;
+    padding: 0;
     font-size: 0.9em;
     background-color: #ffffff;
     text-align: left;
 }
 
+ .boton-comprar-volver{
+    background-color: rgb(76, 175, 80);
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0px 10px;
+    transition: background-color 0.3s;
+    display: block;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 12px;
+    text-align:center;
+ }
+
+ .boton-comprar-volver:hover {
+    background-color: rgb(56, 142, 60); /* Verde más oscuro al pasar el ratón */
+}
 
