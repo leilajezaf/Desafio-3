@@ -1,0 +1,153 @@
+/*PARTE 2: Diseño Personalizado-estilos que rompen con el layout y la estética de estilos-1.css.*/
+
+/* --- TEMA BASE: Oscuro, Tipografía Futurista y Fondo con Gradiente --- */
+
+* {
+    box-sizing: border-box; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  display: grid;
+  /* Define 3 columnas: 20% (Header), 80% (Main), y 0% (Derecha) */
+  grid-template-columns: var(--barra-ancho) 1fr 0%; 
+  min-height: 100vh;
+  margin: 0;
+  /* Fondo general para que se vea el layout */
+  background-color: #38424a; 
+}
+
+main {
+  grid-column: 2; /* Ocupa la segunda columna (el 80% restante) */
+  padding: 30px;
+  background-color: #0f0f0f; /* Fondo oscuro para el contenido */
+  color: #f0f0f0;
+}
+
+header {
+  grid-column: 1; /* Ocupa la primera columna (el 20%) */
+  background-color: var(--verde-claro);
+  height: 100%; /* Asegura que ocupa todo el alto del body */
+  /* Utilizamos Flexbox para controlar la posición del <h1> */
+  display: flex;
+  
+  /* Alineamos el contenido (el h1) en la esquina superior izquierda de la barra */
+  align-items: flex-start; /* Arriba */
+  justify-content: flex-start; /* Izquierda */
+  
+  /* Esto es crucial para que el h1 tenga un contexto de posicionamiento */
+  position: relative; 
+}
+
+/* Opcional: Estilo para el contenedor del h1 si lo usas */
+.banner-superior {
+  padding: 10px;
+}
+
+header h1 {
+    display: flex;
+  color: white; 
+  font-size: 5em; /* Aumentamos el tamaño para que 'ocupe gran parte' */
+  margin: 0; 
+  padding: 0;
+  
+  /* Rota el texto 90 grados en sentido antihorario */
+  transform: rotate(-90deg);
+  
+  /* Define el punto de giro en la parte inferior izquierda de la caja del texto */
+  transform-origin: 0 0; /* Equivalente a top left después de la rotación */
+  
+  /* Posicionamiento ABOSOLUTO respecto al <header> para colocarlo exactamente 
+     en la esquina superior izquierda de la barra lateral */
+  position: absolute; 
+  
+  /* Coloca el texto rotado en la esquina superior izquierda de la barra lateral */
+  top: 260px;    /* Distancia desde el borde superior */
+  left: 10px;      /* Distancia desde el borde izquierdo */
+}
+
+/* --- CAMBIO DE LAYOUT CON CSS GRID --- */
+
+/* Aplicar Grid al contenedor que agrupa las secciones */
+/* Haremos que cada sección se muestre en una columna */
+.seccion-juego {
+    display: grid;
+    /* Definir dos columnas: una estrecha para el título y otra ancha para el contenido */
+    grid-template-columns: 1fr 3fr; 
+    gap: 30px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #0c0c0c;
+}
+
+header {
+    padding: 0px;
+    /* Centra el contenido verticalmente y lo empuja hacia el final de la barra */
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-end; 
+  
+  /* Color de fondo para que veas la barra lateral */
+  background-color: #A2E8B9;
+
+}
+
+/* Reubicar el título de la sección */
+.seccion-juego h2 {
+    grid-column: 1 / 2; /* Ocupa la primera columna */
+    padding: 0;
+    margin: 0;
+    font-size: 2.5em;
+    color: #aaffaa; /* Títulos con acento verde/neón */
+    text-align: right;
+    border-bottom: none; /* Eliminar borde anterior */
+    
+}
+
+/* El contenido (el artículo) ocupará la segunda columna */
+.ficha-juego {
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    display: flex; /* Usamos Flexbox dentro del artículo para la imagen/info */
+    flex-direction: column; /* Apilamos imagen y descripción */
+    background: #070707; /* Fondo para el artículo */
+    border-radius: 15px;
+    overflow: hidden; /* Para que la imagen respete el border-radius */
+}
+
+/* --- ESTILOS VISUALES AVANZADOS --- */
+
+/* Estilo para el título flotante y separador */
+.titulo-foto {
+    background-color: #0d0e0d; /* Fondo verde neón */
+    color: #dcdfde;
+    text-align: center;
+    text-shadow: 0px 1px 1px #ffffff;
+    margin: 20px 10px 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 14px;
+    padding: 6px 6px;
+    /* Usar sombra para el efecto neón */
+    box-shadow: 0 0 8px #aaffaa;
+}
+
+/* Transformación de Botones (Más dinámico) box-shadow: 1px -1px 14px 3px #34eab3; */
+.boton-comprar {
+    background-color: #aaffaa; /* Botón rosa vibrante */
+    box-shadow: 1px -1px 4px 2px #aaffaa;
+    border-radius: 25px; /* Botón píldora */
+    color: #070707;
+    text-decoration:none;
+    padding: 6px 40px;
+    transition: all 0.3s ease;
+}
+
+.boton-comprar:hover {
+    background-color: #070707;
+    color: #aaffaa;
+    text-decoration: none;
+    transform: scale(1.05) translateY(-2px); /* Pequeña animación al pasar el ratón */
+    box-shadow: 0 5px 15px rgba(255, 85, 170, 0.4);
+}
