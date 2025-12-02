@@ -15,43 +15,38 @@ body {
   grid-template-columns: var(--barra-ancho) 1fr 0%; 
   min-height: 100vh;
   margin: 0;
-  /* Fondo general para que se vea el layout */
-  background-color: #38424a; 
 }
 
 main {
   grid-column: 2; /* Ocupa la segunda columna (el 80% restante) */
   padding: 30px;
-  background-color: #0f0f0f; /* Fondo oscuro para el contenido */
-  color: #f0f0f0;
+  color: #fcff34;
+  background-image: url(/imagenes/gamer.png.crdownload);
 }
-
+  
 header {
+  /* Propiedades de la primera definición */
   grid-column: 1; /* Ocupa la primera columna (el 20%) */
-  background-color: var(--verde-claro);
   height: 100%; /* Asegura que ocupa todo el alto del body */
   /* Utilizamos Flexbox para controlar la posición del <h1> */
-  display: flex;
-  
-  /* Alineamos el contenido (el h1) en la esquina superior izquierda de la barra */
-  align-items: flex-start; /* Arriba */
-  justify-content: flex-start; /* Izquierda */
-  
-  /* Esto es crucial para que el h1 tenga un contexto de posicionamiento */
-  position: relative; 
+  display: flexbox; 
+  align-items: center; 
+  justify-content: flex-end;
+  background-color: #fbff02; 
 }
-
 /* Opcional: Estilo para el contenedor del h1 si lo usas */
 .banner-superior {
   padding: 10px;
 }
+.banner-superior:hover {filter:grayscale(30%);}
 
 header h1 {
-    display: flex;
-  color: white; 
-  font-size: 5em; /* Aumentamos el tamaño para que 'ocupe gran parte' */
+  color: rgb(233, 7, 7); 
+  display: flex;
+  font-size: 8em; /* Aumentamos el tamaño para que 'ocupe gran parte' */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: oblique;
   margin: 0; 
-  padding: 0;
   
   /* Rota el texto 90 grados en sentido antihorario */
   transform: rotate(-90deg);
@@ -64,46 +59,48 @@ header h1 {
   position: absolute; 
   
   /* Coloca el texto rotado en la esquina superior izquierda de la barra lateral */
-  top: 260px;    /* Distancia desde el borde superior */
+  top: 430px;    /* Distancia desde el borde superior */
   left: 10px;      /* Distancia desde el borde izquierdo */
 }
 
-/* --- CAMBIO DE LAYOUT CON CSS GRID --- */
+h2 { /* Estilo para "Los más vendidos" */
+    color: #ffffff;
+    font-size: 2.8em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: oblique;
+    text-align:left;
+    text-shadow: 1px 2px 2px #ff0000;
+    justify-content: center;
+    margin: 30px;
+    padding: 10px 20px;
+}
 
-/* Aplicar Grid al contenedor que agrupa las secciones */
 /* Haremos que cada sección se muestre en una columna */
 .seccion-juego {
     display: grid;
     /* Definir dos columnas: una estrecha para el título y otra ancha para el contenido */
     grid-template-columns: 1fr 3fr; 
     gap: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     padding-bottom: 30px;
-    border-bottom: 1px solid #0c0c0c;
-}
-
-header {
-    padding: 0px;
-    /* Centra el contenido verticalmente y lo empuja hacia el final de la barra */
-  display: flex; 
-  align-items: center; 
-  justify-content: flex-end; 
-  
-  /* Color de fondo para que veas la barra lateral */
-  background-color: #A2E8B9;
-
+    border-bottom: 1px solid #000000;
 }
 
 /* Reubicar el título de la sección */
 .seccion-juego h2 {
     grid-column: 1 / 2; /* Ocupa la primera columna */
     padding: 0;
-    margin: 0;
-    font-size: 2.5em;
-    color: #aaffaa; /* Títulos con acento verde/neón */
+    margin: 10px;
+    font-size: 2em;
+    color: #ffffff;
     text-align: right;
-    border-bottom: none; /* Eliminar borde anterior */
-    
+    border-bottom: none; /* Eliminar borde anterior */   
+}
+
+.punteada {
+  border-color: #fbff11;
+  border-style: dashed;
+  margin: 0px;
 }
 
 /* El contenido (el artículo) ocupará la segunda columna */
@@ -111,43 +108,72 @@ header {
     grid-column: 2 / 3; /* Ocupa la segunda columna */
     display: flex; /* Usamos Flexbox dentro del artículo para la imagen/info */
     flex-direction: column; /* Apilamos imagen y descripción */
-    background: #070707; /* Fondo para el artículo */
+    background: #000000; /* Fondo para el artículo */
     border-radius: 15px;
+    margin: 30px;
+    padding-bottom: 60px;
     overflow: hidden; /* Para que la imagen respete el border-radius */
 }
 
-/* --- ESTILOS VISUALES AVANZADOS --- */
-
-/* Estilo para el título flotante y separador */
 .titulo-foto {
-    background-color: #0d0e0d; /* Fondo verde neón */
-    color: #dcdfde;
+    background-color: #d9f100; /* Fondo verde neón */
+    color: rgb(233, 7, 7);
+    font-size: 2em;
     text-align: center;
-    text-shadow: 0px 1px 1px #ffffff;
-    margin: 20px 10px 8px;
+    text-shadow: 0px 1px 1px #000000;
+    margin: 10px 10px 8px;
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 14px;
+    border-radius: none;
     padding: 6px 6px;
     /* Usar sombra para el efecto neón */
-    box-shadow: 0 0 8px #aaffaa;
+    box-shadow: 0 0 8px #e7f849;
 }
 
+img{
+    display:block; /* Ayuda con el centrado y eliminación de espacios */
+    height: auto; /* Mantiene la proporción */
+    width: 100%;
+    border-style: dashed;
+}
+img:hover {filter:grayscale(50%);}
+
+p{
+color: rgb(255, 255, 255);
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: left;
+    padding: 6px 12px;
+}
+
+.info-juego {
+    padding: 20px;
+}
 /* Transformación de Botones (Más dinámico) box-shadow: 1px -1px 14px 3px #34eab3; */
 .boton-comprar {
-    background-color: #aaffaa; /* Botón rosa vibrante */
-    box-shadow: 1px -1px 4px 2px #aaffaa;
-    border-radius: 25px; /* Botón píldora */
-    color: #070707;
+    background-color: #d9f100; /* Botón rosa vibrante */
+    box-shadow: 1px -1px 4px 2px #f70101;
+    border-radius: 2px;
+    color: #f70101;
+    display:flow-root;
+    font-size:x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
     text-decoration:none;
-    padding: 6px 40px;
+    padding: 6px 20px;
+    text-align: center;
     transition: all 0.3s ease;
+    width: 40%;
+    margin: 20px auto 0 auto; /* Centrar el botón */
+
 }
 
 .boton-comprar:hover {
-    background-color: #070707;
-    color: #aaffaa;
+    background-color: #d9f100;
+    color:  #06df23;
     text-decoration: none;
     transform: scale(1.05) translateY(-2px); /* Pequeña animación al pasar el ratón */
-    box-shadow: 0 5px 15px rgba(255, 85, 170, 0.4);
+    box-shadow: 0 5px 15px rgba(255, 253, 254, 0.459);
 }
