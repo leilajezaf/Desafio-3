@@ -1,0 +1,187 @@
+/*PARTE 2: Diseño Personalizado-estilos que rompen con el layout y la estética de estilos-1.css.*/
+
+/* --- TEMA BASE: Oscuro, Tipografía Futurista y Fondo con Gradiente --- */
+
+* {
+    box-sizing: border-box; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-columns: var(--barra-ancho) 1fr 0%; /* Define 3 columnas: 20% (Header), 80% (Main), y 0% (Derecha) */
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+}
+
+main {
+  background-image: url(/imagenes/La-Historia.png);
+  color: #fcff34;
+  grid-column: 2; /* Ocupa la segunda columna (el 80% restante) */
+  grid-row: 1;
+  padding: 30px;
+}
+  
+header {
+  background-color: #fbff02; 
+  grid-column: 1; /* Ocupa la primera columna (el 20%) */
+  grid-row: 1;
+  height: 100%; /* Asegura que ocupa todo el alto del body */
+  width:100% ;
+}
+/*Estilo para el contenedor del h1 */
+.banner-superior {
+  padding: 86px;
+}
+.banner-superior:hover {filter:grayscale(30%);}
+
+h1 {
+  color: rgb(233, 7, 7); 
+  display: flex;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 8em; /* para que 'ocupe gran parte' */
+  font-style: oblique;
+  margin: 0; 
+  position: absolute; /* Posicionamiento ABOSOLUTO respecto al <header> para colocarlo exactamente 
+  en la esquina superior izquierda de la barra lateral */
+  transform: rotate(-90deg);/* Rota el texto 90 grados en sentido antihorario */
+  /* Define el punto de giro en la parte inferior izquierda de la caja del texto */
+  transform-origin: 0 0; /* Equivalente a top left después de la rotación */
+  
+  /* Coloca el texto rotado en la esquina superior izquierda de la barra lateral */
+  top: 430px;    /* Distancia desde el borde superior */
+  left: 6px;    /* Distancia desde el borde izquierdo */
+}
+
+h2 { /* Estilo para "Los más vendidos" */
+    color: #fbff02;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align:left;
+    font-size: 3.2em;
+    font-style: oblique;
+    margin: 10px;
+    padding: 10px 20px;
+    text-shadow: 2px 3px 2px #ff0000;
+    justify-content: center;
+}
+
+/* Haremos que cada sección se muestre en una columna */
+.seccion-juego {
+    border-bottom: 1px solid #000000;
+    display: grid;/* Definir dos columnas: una estrecha para el título y otra ancha para el contenido */
+    grid-template-columns: 1fr 3fr; 
+    gap: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+}
+
+.seccion-juego h2 {
+    border-bottom: none; /* Eliminar borde anterior */   
+    color: #ffffff;
+    grid-column: 1 / 2; /* Ocupa la primera columna */
+    font-size: 2em;
+    margin: 10px;
+    padding: 0;
+    text-align: right;
+}
+
+.punteada {
+  border-color: #fbff11;
+  border-style: dashed;
+  margin: 0px;
+}
+
+/* El contenido (el artículo) ocupará la segunda columna */
+.ficha-juego {
+    background: #000000; 
+    border-radius: 15px;
+    display: flex; /* Usamos Flexbox dentro del artículo para la imagen/info */
+    flex-direction: column; /* Apilamos imagen y descripción */
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    margin: 30px;
+    overflow: hidden; /* Para que la imagen respete el border-radius */
+    padding-bottom: 60px;
+}
+
+.titulo-foto {
+    background-color: #d9f100; 
+    border-radius: none;
+    box-shadow: 0 0 8px #e7f849;
+    color: rgb(233, 7, 7);
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 10px 8px;
+    padding: 6px 6px;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 1px #000000;
+}
+
+img{
+    border-style: dashed;
+    display:block; /* Ayuda con el centrado y eliminación de espacios */
+    height: auto; /* Mantiene la proporción */
+    width: 100%;
+}
+img:hover {filter:grayscale(50%);}
+
+p{
+    color: rgb(255, 255, 255);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.info-juego {
+    padding: 20px;
+}
+/* Transformación de Botones (Más dinámico) */
+.boton-comprar {
+    background-color: #d9f100;
+    border-radius: 2px;
+    box-shadow: 1px -1px 4px 2px #f70101;
+    color: #f70101;
+    display:flow-root;
+    font-size:x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    margin: 20px auto 0 auto; /* Centrar el botón */
+    padding: 6px 20px;
+    text-align: center;
+    text-decoration:none;
+    transition: all 0.3s ease;
+    width: 40%;
+}
+
+.boton-comprar:hover {
+    background-color: #d9f100;
+    box-shadow: 0 5px 15px rgba(255, 253, 254, 0.459);
+    color:  #06df23;
+    text-decoration: none;
+    transform: scale(1.05) translateY(-2px); /* Pequeña animación al pasar el ratón */
+}
+
+footer {
+   /* CLAVE: Comienza en la línea 1 y termina en la línea 4, abarcando las 3 columnas (20%, 80%, 0%) */
+    background-color: #000000; 
+    color: white;
+    grid-column: 1 / 4;
+    grid-row: 2;
+    margin: 0; 
+    padding: 8px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.contenedor-pag p {
+  font-size: 16px; 
+  margin: 0px;
+  padding-right: 70px;
+  text-align:right;
+  width: 100%;
+}
+
